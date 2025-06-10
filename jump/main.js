@@ -60,7 +60,7 @@ var Player = function() {
   this.isMovingRight = false;
   this.isDead = false;
 
-  this.width = 55;
+  this.width = 40;
   this.height = 40;
 
   //Sprite clipping
@@ -101,8 +101,8 @@ player = new Player();
 //Platform class
 
 function Platform() {
-  this.width = 70;
-  this.height = 17;
+  this.width = 60;
+  this.height = 7;
 
   this.x = Math.random() * (width - this.width);
   this.y = position;
@@ -166,8 +166,8 @@ for (var i = 0; i < platformCount; i++) {
 
 //Broken platform object
 var Platform_broken_substitute = function() {
-  this.height = 30;
-  this.width = 70;
+  this.height = 60;
+  this.width = 7;
 
   this.x = 0;
   this.y = 0;
@@ -175,7 +175,7 @@ var Platform_broken_substitute = function() {
   //Sprite clipping
   this.cx = 0;
   this.cy = 554;
-  this.cwidth = 105;
+  this.cwidth = 7;
   this.cheight = 60;
 
   this.appearance = false;
@@ -195,14 +195,14 @@ var spring = function() {
   this.x = 0;
   this.y = 0;
 
-  this.width = 26;
-  this.height = 30;
+  this.width = 60;
+  this.height = 7;
 
   //Sprite clipping
   this.cx = 0;
   this.cy = 0;
-  this.cwidth = 45;
-  this.cheight = 53;
+  this.cwidth = 60;
+  this.cheight = 7;
 
   this.state = 0;
 
@@ -444,13 +444,6 @@ function init() {
       showGoMenu();
       hideScore();
       player.isDead = "lol";
-
-      var tweet = document.getElementById("tweetBtn");
-      tweet.href='http://twitter.com/share?url=http://is.gd/PnFFzu&text=I just scored ' +score+ ' points in the HTML5 Doodle Jump game!&count=horiztonal&via=cssdeck&related=solitarydesigns';
-    
-      var facebook = document.getElementById("fbBtn");
-      facebook.href='http://facebook.com/sharer.php?s=100&p[url]=http://cssdeck.com/labs/html5-doodle-jump/8&p[title]=I just scored ' +score+ ' points in the HTML5 Doodle Jump game!&p[summary]=Can you beat me in this awesome recreation of Doodle Jump created in HTML5?';
-
     }
   }
 
@@ -593,7 +586,7 @@ function playerJump() {
   //Accelerations produces when the user hold the keys
   if (player.isMovingLeft === true) {
     player.x += player.vx;
-    player.vx -= 0.15;
+    player.vx -= 0.1;
   } else {
     player.x += player.vx;
     if (player.vx < 0) player.vx += 0.1;
@@ -601,7 +594,7 @@ function playerJump() {
 
   if (player.isMovingRight === true) {
     player.x += player.vx;
-    player.vx += 0.15;
+    player.vx += 0.1;
   } else {
     player.x += player.vx;
     if (player.vx > 0) player.vx -= 0.1;
